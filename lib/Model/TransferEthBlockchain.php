@@ -24,12 +24,12 @@ class TransferEthBlockchain extends AbstractModel {
     public const _D = null;
     protected static $_name = "TransferEthBlockchain";
     protected static $_definition = [
-        "to" => ["to", "string", null, "getTo", "setTo", null, ["r" => 1, "nl" => 42, "xl" => 42]], 
-        "amount" => ["amount", "string", null, "getAmount", "setAmount", null, ["r" => 1, "p" => "/^[+]?((\\d+(\\.\\d*)?)|(\\.\\d+))$/"]], 
-        "currency" => ["currency", "\Tatum\Model\Erc20Currency", null, "getCurrency", "setCurrency", null, ["r" => 1]], 
-        "from_private_key" => ["fromPrivateKey", "string", null, "getFromPrivateKey", "setFromPrivateKey", null, ["r" => 1, "nl" => 66, "xl" => 66]], 
-        "fee" => ["fee", "\Tatum\Model\CustomFee", null, "getFee", "setFee", null, ["r" => 0]], 
-        "data" => ["data", "string", null, "getData", "setData", null, ["r" => 0, "xl" => 50000]], 
+        "to" => ["to", "string", null, "getTo", "setTo", null, ["r" => 1, "nl" => 42, "xl" => 42]],
+        "amount" => ["amount", "string", null, "getAmount", "setAmount", null, ["r" => 1, "p" => "/^[+]?((\\d+(\\.\\d*)?)|(\\.\\d+))$/"]],
+        "currency" => ["currency", "string", null, "getCurrency", "setCurrency", null, ["r" => 1]],
+        "from_private_key" => ["fromPrivateKey", "string", null, "getFromPrivateKey", "setFromPrivateKey", null, ["r" => 1, "nl" => 66, "xl" => 66]],
+        "fee" => ["fee", "\Tatum\Model\CustomFee", null, "getFee", "setFee", null, ["r" => 0]],
+        "data" => ["data", "string", null, "getData", "setData", null, ["r" => 0, "xl" => 50000]],
         "nonce" => ["nonce", "float", null, "getNonce", "setNonce", null, ["r" => 0, "n" => [0]]]
     ];
 
@@ -56,7 +56,7 @@ class TransferEthBlockchain extends AbstractModel {
 
     /**
      * Set to
-     * 
+     *
      * @param string $to The blockchain address of the recipient
      * @throws \InvalidArgumentException
      * @return $this
@@ -76,7 +76,7 @@ class TransferEthBlockchain extends AbstractModel {
 
     /**
      * Set amount
-     * 
+     *
      * @param string $amount The amount to be sent
      * @throws \InvalidArgumentException
      * @return $this
@@ -88,20 +88,20 @@ class TransferEthBlockchain extends AbstractModel {
     /**
      * Get currency
      *
-     * @return \Tatum\Model\Erc20Currency|null
+     * @return string
      */
-    public function getCurrency(): ?\Tatum\Model\Erc20Currency {
+    public function getCurrency(): ?string {
         return $this->_data["currency"];
     }
 
     /**
      * Set currency
      * 
-     * @param \Tatum\Model\Erc20Currency $currency currency
+     * @param string $currency currency
      * @throws \InvalidArgumentException
      * @return $this
      */
-    public function setCurrency(\Tatum\Model\Erc20Currency $currency) {
+    public function setCurrency(string $currency) {
         return $this->_set("currency", $currency);
     }
 
@@ -116,7 +116,7 @@ class TransferEthBlockchain extends AbstractModel {
 
     /**
      * Set from_private_key
-     * 
+     *
      * @param string $from_private_key The private key of the blockchain address of the sender; the fee will be deducted from this address
      * @throws \InvalidArgumentException
      * @return $this
@@ -136,7 +136,7 @@ class TransferEthBlockchain extends AbstractModel {
 
     /**
      * Set fee
-     * 
+     *
      * @param \Tatum\Model\CustomFee|null $fee fee
      * @throws \InvalidArgumentException
      * @return $this
@@ -156,7 +156,7 @@ class TransferEthBlockchain extends AbstractModel {
 
     /**
      * Set data
-     * 
+     *
      * @param string|null $data Additional data that can be passed to a blockchain transaction as a data property; must be in the hexadecimal format
      * @throws \InvalidArgumentException
      * @return $this
@@ -176,7 +176,7 @@ class TransferEthBlockchain extends AbstractModel {
 
     /**
      * Set nonce
-     * 
+     *
      * @param float|null $nonce The nonce to be set to the transaction; if not present, the last known nonce will be used
      * @throws \InvalidArgumentException
      * @return $this
